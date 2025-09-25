@@ -20,9 +20,41 @@ sheet = service.spreadsheets()
 
 sheet_id ="1OckYU4X_owgTRYMsZS4wP-5lJSeYLHqrFg631fY8XFw" 
 
-range = 'A1:A5'
+range = 'A1:B5'
+
+# read
 
 sheet_read = sheet.values().get(spreadsheetId=sheet_id,range=range).execute()
+
+values = sheet_read.get("values", [])
+for row in values:
+    print(row)
+
+# write
+
+
+values = [
+    ["hello", "world"],
+    ["hola", "mundo"],
+    ["hola", "mundo"],
+    ["hola", "mundo"],
+    ["hola", "mundo"]
+]  
+
+body = {"values": values}
+
+sheet_write = sheet.values().update(spreadsheetId=sheet_id,range='A1:B5',valueInputOption='RAW', body=body).execute()
+
+sheet_read = sheet.values().get(spreadsheetId=sheet_id,range=range).execute()
+
+values = sheet_read.get("values", [])
+for row in values:
+    print(row)
+
+# delete
+
+#sheet_clear = sheet.values().clear(spreadsheetId=sheet_id,range='A1:B2').execute()
+#sheet_read = sheet.values().get(spreadsheetId=sheet_id,range=range).execute()
 
 values = sheet_read.get("values", [])
 for row in values:
