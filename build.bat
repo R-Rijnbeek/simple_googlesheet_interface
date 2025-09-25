@@ -9,7 +9,7 @@ if not exist ".\.vscode\" mkdir .\.vscode
     echo     "configurations": [
     echo         {
     echo             "name": "Python: Archivo actual",
-    echo             "type": "python",
+    echo             "type": "debugpy",
     echo             "request": "launch",
     echo             "program": "${file}",
     echo             "console": "integratedTerminal"

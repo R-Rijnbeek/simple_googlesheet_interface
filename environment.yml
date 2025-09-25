@@ -3,4 +3,9 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - google-api-python-client
+  - python
+  - pip
+  - pip:
+    - google-api-python-client
+    - google-auth-oauthlib
+    - google-auth-httplib2
