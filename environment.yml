@@ -1,0 +1,6 @@
+name: env
+channels:
+  - defaults
+  - conda - forge
+dependencies:
+  - google-api-python-client
