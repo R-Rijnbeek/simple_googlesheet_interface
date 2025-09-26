@@ -12,7 +12,7 @@ else:
     sys.path.append('.')
     from src.simple_googesheet_interface import GoogleSheetInterface
 
-# ===== TEST ======
+# ===== TEST =======
 
 interface = GoogleSheetInterface(SHEET_ID, SERVICE_ACCOUNT_FILE)
 
