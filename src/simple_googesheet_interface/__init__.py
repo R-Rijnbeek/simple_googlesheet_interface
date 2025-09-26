@@ -37,7 +37,7 @@ class GoogleSheetInterface():
     def clear(self,RANGE):
          return self.SHEET.values().clear(spreadsheetId=self.SHEET_ID ,range=RANGE).execute()
 
-    # =============== EXECUTE TEST CODE ===============
+    # =============== EXECUTE TEST CODE ==============
 
 if __name__ == "__main__":
 
