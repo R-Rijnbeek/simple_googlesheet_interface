@@ -1,14 +1,26 @@
+# -*- coding: utf-8 -*-
+"""
+simple_gsheet_interface: Module to work with the most simple version with Google Sheets: READ, WRITE and CLEAR data from an existing spreadsheet of Google
+"""
+__author__  = "Robert Rijnbeek"
+__email__   = "robert270384@gmail.com"
+__version__ = "0.0.1"
+
+# ============ IMPORTS =============
+
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build, Resource
 
+# ========= BASE PARAMETERS ========
 
 SCOPES = ["https://spreadsheets.google.com/feeds"]
-SERVICE_ACCOUNT_FILE = "KEY\\applied-primacy-289510-73b0cec868d7.json"
+
+# == GOOGLE SHEET INTERFACE CLASS ==
 
 class GoogleSheetInterface():
-    def __init__(self,SheetID):
+    def __init__(self,SheetID, service_account_file_location):
         self.SCOPES = SCOPES 
-        self.SERVICE_ACCOUNT_FILE = SERVICE_ACCOUNT_FILE
+        self.SERVICE_ACCOUNT_FILE = service_account_file_location
         self.SHEET_ID = SheetID
         self.CREDENTIALS = Credentials.from_service_account_file(self.SERVICE_ACCOUNT_FILE, scopes = self.SCOPES)
         self.SERVICE: Resource = build("sheets", "v4", credentials=self.CREDENTIALS)
@@ -28,26 +40,6 @@ class GoogleSheetInterface():
     # =============== EXECUTE TEST CODE ===============
 
 if __name__ == "__main__":
+
+    pass
     
-    sheet_id ="1OckYU4X_owgTRYMsZS4wP-5lJSeYLHqrFg631fY8XFw" 
-    interface = GoogleSheetInterface(sheet_id)
-
-    read = interface.read('A1:B5')
-
-    print(read)
-
-    values = [
-                ["hello", "world"],
-                ["hola", "mundo"],
-                ["hola", "mundo"],
-                ["hola", "mundo"],
-                ["hola", "=max(9,6)"]
-    ]  
-
-    write = interface.write('A1:B5',values)
-
-    print(write)
-
-    clear = interface.clear("A1:B2")
-
-    print(clear)
