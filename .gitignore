@@ -208,4 +208,5 @@ __marimo__/
 
 # Custom modification
 .vscode/
+TEST/_google_sheet_configuration_settings_.py
 *.json
