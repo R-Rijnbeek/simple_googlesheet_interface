@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#Those parameters must be configurated
+#Those parameters must be configurated.
 
 SHEET_ID ="<ID OF YOUR GOOGLE SHEET>" 
 
