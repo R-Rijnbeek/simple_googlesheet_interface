@@ -6,11 +6,11 @@ from _test_settings_ import USE_INSTALLED_PACKAGE
 from _google_sheet_configuration_settings_ import SHEET_ID, SERVICE_ACCOUNT_FILE
 
 if USE_INSTALLED_PACKAGE :
-    from simple_gsheet_interface import GoogleSheetInterface
+    from simple_googlesheet_interface import GoogleSheetInterface
 else:
     import sys
     sys.path.append('.')
-    from src.simple_gsheet_interface import GoogleSheetInterface
+    from src.simple_googesheet_interface import GoogleSheetInterface
 
 # ===== TEST ======
 
