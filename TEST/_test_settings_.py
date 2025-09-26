@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-USE_INSTALLED_PACKAGE = False
+USE_INSTALLED_PACKAGE = True

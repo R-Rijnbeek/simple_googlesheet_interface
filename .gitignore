@@ -210,3 +210,4 @@ __marimo__/
 .vscode/
 TEST/_google_sheet_configuration_settings_.py
 *.json
+deploy_env/

@@ -20,7 +20,7 @@ class getPackageInfo:
     def __Process(self):
         self.__getPackageModuleNameFromProject()
         self.__getPacketInitFileContent()
-        self.__getconfigGIT()
+        #self.__getconfigGIT()
         self.__getLongDescription()
         self.__getDescription()
         self.__getVersion()
@@ -59,11 +59,12 @@ class getPackageInfo:
                 encoding='utf_8_sig'
             ).read()
         return True
-
+    """
     def __getconfigGIT(self):
         with open(os.path.join(os.getcwd(), '.git', 'config'), "r", encoding="utf-8") as fh:
             self._git_config_file = fh.read()
             return  True
+    """
 
     def __getDescription(self):
         self._description = re.search(
@@ -93,12 +94,15 @@ class getPackageInfo:
             ).group(1)
         return True
 
+    
     def __getGITHost(self):
-        self._git_host = re.search(
-                r'(?<=\[remote "origin"\]\n\turl = )((.|\n)*)(?=\.git)',
-                self._git_config_file
-            ).group(1)
+        #self._git_host = re.search(
+        #       r'(?<=\[remote "origin"\]\n\turl = )((.|\n)*)(?=\.git)',
+        #        self._git_config_file
+        #    ).group(1)
+        self._git_host = "https://github.com/R-Rijnbeek/simple_googlesheet_interface"
         return True
+    
 
     def __getGITIssuesHost(self):
         self._git_issues_host = self._git_host + "/issues"
@@ -156,14 +160,15 @@ setup(
     long_description = PACKAGE_INFO.long_description,
     long_description_content_type = "text/markdown",
     url = PACKAGE_INFO.git_host,
+    include_package_data = True,
     project_urls = {
         "Bug Tracker": PACKAGE_INFO.git_issues_host,
     },
     data_files=[
-        (
-            '.git.',
-            ['.git/config']
-        ),
+        #(
+        #    '.git.',
+        #    ['.git/config']
+        #),
         (
             '.',
             ["requirements.txt"]
@@ -176,6 +181,6 @@ setup(
     ],
     package_dir = { "": "src"},
     packages = find_packages(where = "src"),
-    python_requires = ">=3.13",
+    python_requires = ">=3.10",
     install_requires=PACKAGE_INFO.required_packages
 )
