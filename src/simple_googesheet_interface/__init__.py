@@ -4,7 +4,7 @@ simple_gsheet_interface: Module to work with the most simple version with Google
 """
 __author__  = "Robert Rijnbeek"
 __email__   = "robert270384@gmail.com"
-__version__ = "0.0.1"
+__version__ = "0.0.8"
 
 # ============ IMPORTS =============
 
